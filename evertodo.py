@@ -18,6 +18,7 @@ __author__ = 'noisufnoc'
 import evernote.edam.userstore.constants as UserStoreConstants
 import evernote.edam.notestore.ttypes as NoteStoreTypes
 import evernote.edam.type.ttypes as Types
+import xml.etree.ElementTree as ET
 import sys
 import os
 
@@ -63,6 +64,10 @@ if len(searchResults.notes):
         print note.title
         my_note = note_store.getNote(note.guid, True, True, False, False)
         print my_note.content
+        print ''
+        xml = ET.fromstring(my_note.content)
+        for child in xml.iter('en-todo'):
+            print child.tag, child.attrib, child.tail
 else:
     print "Nothing to see here"
 
