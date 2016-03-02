@@ -61,7 +61,6 @@ if len(searchResults.notes):
     for note in searchResults.notes:
         print note.guid
         print note.title
-        print note.__dict__
         my_note = note_store.getNote(note.guid, True, True, False, False)
         print my_note.content
 else:
