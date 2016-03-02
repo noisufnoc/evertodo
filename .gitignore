@@ -61,3 +61,6 @@ target/
 *.swp
 .ropeproject/
 config.ini
+EDAMTest*
+main.py
+my_evernote*
