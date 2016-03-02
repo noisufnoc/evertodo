@@ -10,6 +10,7 @@ __author__ = 'noisufnoc'
 # TODO: Need to figure out Todoist API
 # TODO: Might want to email some sort of digest, unless other tool is better
 # TODO: Forget email digest, log to Splunk via HEC!
+# TODO: remove unused imports
 
 # Thank you https://github.com/inkedmn/enhack-sample for helping me to
 #   understand how to find my notes
@@ -29,8 +30,6 @@ if os.path.isfile(CONFIG):
     parser.read(CONFIG)
 
     auth_token = parser.get('evernote', 'token')
-    print auth_token
-    raw_input("Waiting")
 else:
     print 'You don\'t have any config'
     sys.exit(1)
