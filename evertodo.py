@@ -15,6 +15,8 @@ __author__ = 'noisufnoc'
 # Thank you https://github.com/inkedmn/enhack-sample for helping me to
 #   understand how to find my notes
 
+# Currently using sandbox.evernote.com
+
 import evernote.edam.userstore.constants as UserStoreConstants
 import evernote.edam.notestore.ttypes as NoteStoreTypes
 import evernote.edam.type.ttypes as Types
@@ -24,6 +26,9 @@ import os
 
 from evernote.api.client import EvernoteClient
 from ConfigParser import SafeConfigParser
+
+# Temp
+from xml.dom.minidom import parseString
 
 CONFIG = 'config.ini'
 if os.path.isfile(CONFIG):
@@ -66,6 +71,7 @@ if len(searchResults.notes):
         print my_note.content
         print ''
         xml = ET.fromstring(my_note.content)
+        print parseString(my_note.content).toprettyxml()
         for child in xml.iter('en-todo'):
             print child.tag, child.attrib, child.tail
 else:
